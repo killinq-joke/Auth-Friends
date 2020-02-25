@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function FriendsList({friend, deleteFriend}) {
+export default function FriendsList({ friend, deleteFriend }) {
   return (
     <div>
       <h3>
@@ -9,6 +9,7 @@ export default function FriendsList({friend, deleteFriend}) {
         email: {friend.email}
       </h3>
       <button onClick={evt => deleteFriend(friend.id)}>delete</button>
+      <button>edit</button>
     </div>
   );
 }

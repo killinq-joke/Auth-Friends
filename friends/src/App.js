@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Route, NavLink, useHistory, Redirect } from "react-router-dom";
 import axios from "./axiosWithAuth";
-import FriendsList from './Components/FriendsList'
+import FriendsList from "./Components/FriendsList";
 import "./App.css";
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
     username: "",
     password: ""
   });
+
   useEffect(() => {
     axios()
       .get("http://localhost:5000/api/friends")
@@ -42,14 +43,14 @@ function App() {
 
   const deleteFriend = id => {
     axios()
-    .delete(`http://localhost:5000/api/friends/${id}`)
-    .then(res => {
-      setFriends(res.data)
-    })
-    .catch(err => {
-      console.log(err)
-    })
-  }
+      .delete(`http://localhost:5000/api/friends/${id}`)
+      .then(res => {
+        setFriends(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className="App">
@@ -75,8 +76,7 @@ function App() {
       </Route>
 
       <PrivateRoute path="/friends">
-        <FriendsList friends={friends} deleteFriend={deleteFriend}/>
-        
+        <FriendsList friends={friends} deleteFriend={deleteFriend} />
       </PrivateRoute>
     </div>
   );

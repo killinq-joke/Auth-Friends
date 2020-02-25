@@ -6,7 +6,11 @@ export default function FriendsList({ friends, deleteFriend }) {
     <div>
       {friends.map(friend => {
         return (
-          <FriendCard key={friend.id} friend={friend} deleteFriend={deleteFriend}/>
+          <FriendCard
+            key={friend.id}
+            friend={friend}
+            deleteFriend={deleteFriend}
+          />
         );
       })}
     </div>
