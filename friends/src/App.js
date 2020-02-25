@@ -40,6 +40,17 @@ function App() {
     });
   };
 
+  const deleteFriend = id => {
+    axios()
+    .delete(`http://localhost:5000/api/friends/${id}`)
+    .then(res => {
+      setFriends(res.data)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
+
   return (
     <div className="App">
       <nav>
@@ -64,7 +75,7 @@ function App() {
       </Route>
 
       <PrivateRoute path="/friends">
-        <FriendsList friends={friends}/>
+        <FriendsList friends={friends} deleteFriend={deleteFriend}/>
         
       </PrivateRoute>
     </div>
